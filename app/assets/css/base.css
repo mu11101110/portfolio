@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@plugin '@egoist/tailwindcss-icons' {
+  scale: 1.5;
+}
+
+@theme {
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1020px;
+
+  --color-primary-light: #ffb2ac;
+  --color-primary: #ed5a58;
+  --color-primary-dark: #b33d3f;
+  --color-secondary-light: #4ecbd7;
+  --color-secondary: #00a3c1;
+  --color-secondary-dark: #005782;
+  --color-thirdly-light: #ae7cec;
+  --color-thirdly: #8f4ce3;
+  --color-thirdly-dark: #6e3cac;
+  --color-surface-white: #ffffff;
+  --color-surface-disabled: #dedede;
+  --color-surface-background: #f2f2f2;
+  --color-text: #333333;
+  --color-text-light: #888888;
+  --color-highlight-error: #ff413c;
+  --color-highlight-yellow: #eaff48;
+
+  --font-sans: "Noto Sans JP", sans-serif;
+
+  --text-sm--line-height: 1.7;
+  --text-base--line-height: 1.7;
+  --text-lg--line-height: 1.7;
+  --text-xl--line-height: 1.7;
+  --text-2xl--line-height: 1.7;
+}
+
+@utility section-base-px {
+  @apply px-4 lg:px-0;
+}
+
+@utility hover-animation {
+  @apply ease-in-out duration-300 hover:cursor-pointer;
+}
+
+/* コンテンツ */
+html {
+  @apply bg-surface-background break-all;
+}
+
+body {
+  @apply text-text;
+}
+
+/* タイトル */
+h2 {
+  @apply text-primary font-bold text-5xl leading-[1.4] text-center;
+}
+
+h3 {
+  @apply font-bold text-base leading-[1.5];
+}
+
+/* リンク */
+a {
+  @apply hover-animation text-primary underline hover:text-primary-light visited:text-primary-dark;
+}
+
+/* フォーム - 基本設定 */
+input,
+select {
+  @apply appearance-none outline-0 w-full bg-surface-white border-secondary-light border-2 rounded-lg h-12;
+}
+
+input::placeholder {
+  @apply text-text-light;
+}
+
+input:-webkit-autofill {
+  @apply shadow-[0_0_0_1000px_#fff_inset];
+}
+
+select:invalid {
+  @apply text-text-light;
+}
+
+select option {
+  @apply text-text;
+}
+
+input[type="radio"] {
+  @apply size-6 rounded-full relative;
+}
+
+input[type="radio"]:checked::after {
+  @apply content-[""] block size-3 rounded-full bg-secondary-light absolute inset-0 m-auto;
+}
+
+input[type="checkbox"] {
+  @apply size-6 rounded relative;
+}
+
+input[type="checkbox"]:checked::before {
+  @apply content-[""] i-ic-check text-white absolute z-20 -top-0.5 -left-0.5;
+}
+
+input[type="checkbox"]:checked::after {
+  @apply content-[""] block size-full bg-secondary-light absolute z-10;
+}
+
+/* フォーム - フォーカス */
+input[type="text"],
+input[type="email"],
+input[type="radio"],
+select {
+  @apply focus:border-4;
+}
+
+input[type="checkbox"] {
+  @apply focus:border-secondary;
+}
+
+/* フォーム - エラー */
+input.valid-error,
+select.valid-error {
+  @apply border-highlight-error;
+}
+
+input[type="checkbox"].valid-error {
+  @apply focus:border-highlight-error;
+}
+
+input[type="radio"].valid-error:checked::after,
+input[type="checkbox"].valid-error:checked::after {
+  @apply bg-highlight-error;
+}
+
+/* フォーム - 非活性 */
+input:disabled,
+select:disabled {
+  @apply text-text-light border-text-light bg-surface-disabled hover:cursor-not-allowed;
+}
+
+input[type="radio"]:checked:disabled::after {
+  @apply bg-text-light;
+}
+
+input[type="checkbox"]:checked:disabled::before {
+  @apply text-surface-disabled;
+}
+
+input[type="checkbox"]:checked:disabled::after {
+  @apply bg-text-light;
+}
+
+/* フォーム入力内容確認リスト */
+.input-content-list {
+  @apply [&>dt]:font-bold [&>dd+dt]:mt-3;
+}

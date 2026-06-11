@@ -1,0 +1,40 @@
+# Node
+node_modules
+.pnpm-store
+
+# Nuxt, Nitro
+.nuxt
+.output
+.data
+.nitro
+
+# Build outputs
+dist
+
+# Storybook
+storybook-static
+
+# Test outputs
+coverage
+test-results
+playwright-report
+
+# Generated files, caches
+.cache
+components.d.ts
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+
+# Local env files
+.env
+.env.*
+!.env.example
+*.local
+
+# OS, editor
+.DS_Store
+.fleet
+.idea

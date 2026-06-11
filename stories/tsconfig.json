@@ -1,0 +1,10 @@
+{
+  "extends": "../.nuxt/tsconfig.app.json",
+  "include": [
+    "**/*.stories.ts",
+    "../types/**/*.d.ts",
+    "../.nuxt/nuxt.d.ts",
+    "../app/**/*",
+    "../components.d.ts"
+  ]
+}
