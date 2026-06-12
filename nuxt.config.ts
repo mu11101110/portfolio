@@ -22,7 +22,6 @@ export default defineNuxtConfig({
       title: "Sample Site",
       meta: [
         { charset: "utf-8" },
-        { name: "robots", content: "noindex,nofollow" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
       ],
     },
